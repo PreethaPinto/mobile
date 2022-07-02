@@ -7,21 +7,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatTableModule} from '@angular/material/table';
+import { ProductsComponent } from './products/products.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductsComponent,
+    ProductDialogComponent,
   ],
+ 
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
