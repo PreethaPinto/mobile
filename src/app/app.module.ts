@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MobileHourWebsiteComponent } from './mobile-hour-website/mobile-hour-website.component';
 
 
 
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     ProductsComponent,
     ProductDialogComponent,
+    MobileHourWebsiteComponent,
   ],
  
   imports: [
