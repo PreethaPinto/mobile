@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { ProductService } from '../product.service';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 
 export interface Product {
-  product_id: number;
+  product_id?: number;
   product_name: string;
   product_model: string;
   manufacturer: string;
@@ -11,27 +13,6 @@ export interface Product {
   stock_on_hand: number;
   feature_id: number;
 }
-
-const ELEMENT_DATA: Product[] = [
-  {
-    product_id: 2,
-    product_name: 'iPhone 13',
-    product_model: 'Mini',
-    manufacturer: 'Apple',
-    price: 1500,
-    stock_on_hand: 100,
-    feature_id: 1,
-  },
-  {
-    product_id: 3,
-    product_name: 'Galaxy 23',
-    product_model: 'Ultra',
-    manufacturer: 'Samsung',
-    price: 1200,
-    stock_on_hand: 200,
-    feature_id: 2,
-  },
-];
 
 @Component({
   selector: 'app-products',
@@ -47,18 +28,28 @@ export class ProductsComponent implements OnInit {
     'price',
     'stock_on_hand',
     'feature_id',
+    'delete',
   ];
-  dataSource = ELEMENT_DATA;
 
-  ngOnInit(): void {}
+  dataSource: any;
 
-  constructor(public dialog: MatDialog) {}
+  ngOnInit(): void {
+    this.refreshList();
+  }
+
+  refreshList() {
+    this.service.getProducts().subscribe((data) => {
+      this.dataSource = data;
+    });
+  }
+
+  constructor(public dialog: MatDialog, private service: ProductService) {}
   addNewProduct() {
     this.dialog
       .open(ProductDialogComponent)
       .afterClosed()
       .subscribe((result) => {
-        console.log(`Dialog result: ${result}`);
+        this.refreshList();
       });
   }
 }

@@ -4,26 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { ProductsComponent } from './products/products.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MobileHourWebsiteComponent } from './mobile-hour-website/mobile-hour-website.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductsComponent,
-    ProductDialogComponent,
-    MobileHourWebsiteComponent,
-  ],
- 
+  declarations: [AppComponent, ProductsComponent, ProductDialogComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,11 +25,13 @@ import { MobileHourWebsiteComponent } from './mobile-hour-website/mobile-hour-we
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatIconModule,
     MatTableModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

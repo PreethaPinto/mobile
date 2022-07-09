@@ -17,12 +17,12 @@ export class ProductDialogComponent implements OnInit {
     product_name: new FormControl(''),
     product_model: new FormControl(''),
     manufacturer: new FormControl(''),
-    price: new FormControl(''),
-    stock_on_hand: new FormControl(''),
-    feature_id: new FormControl(''),
+    price: new FormControl(),
+    stock_on_hand: new FormControl(),
+    feature_id: new FormControl(),
   });
 
   addNewProduct() {
-    this.service.addNewProduct(this.productForm.value as any);
+    this.service.addNewProduct(this.productForm.value as Product).subscribe();
   }
 }
