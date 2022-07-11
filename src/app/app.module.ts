@@ -14,9 +14,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './users/users.component';
+import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, ProductDialogComponent],
+  declarations: [
+    AppComponent,
+    ProductsComponent,
+    ProductDialogComponent,
+    UsersComponent,
+    UserDialogComponent,
+  ],
 
   imports: [
     BrowserModule,

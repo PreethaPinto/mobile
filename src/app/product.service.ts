@@ -22,4 +22,8 @@ export class ProductService {
       headers: headers,
     });
   }
+
+  deleteProduct(id: number) {
+    return this.http.delete(this.baseURL + 'products/' + id);
+  }
 }

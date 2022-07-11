@@ -1,7 +1,4 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
   <!-- Product ID Column -->
   <ng-container matColumnDef="product_id">
     <th mat-header-cell *matHeaderCellDef>Product ID</th>
@@ -35,7 +32,7 @@
   <!-- Stock on hand Column -->
   <ng-container matColumnDef="stock_on_hand">
     <th mat-header-cell *matHeaderCellDef>Stock on hand</th>
-    <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.stock_on_hand }}</td>
   </ng-container>
 
   <!-- Feature ID Column -->
@@ -47,7 +44,7 @@
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef>Delete</th>
     <td mat-cell *matCellDef="let element">
-      <mat-icon>delete</mat-icon>
+      <mat-icon (click)="deleteProduct(element.product_id)">delete</mat-icon>
     </td>
   </ng-container>
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
 import { ProductService } from '../product.service';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 
@@ -51,5 +50,11 @@ export class ProductsComponent implements OnInit {
       .subscribe((result) => {
         this.refreshList();
       });
+  }
+
+  deleteProduct(product_id: number) {
+    this.service.deleteProduct(product_id).subscribe((product) => {
+      this.refreshList();
+    });
   }
 }
