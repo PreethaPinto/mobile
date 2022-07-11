@@ -29,6 +29,10 @@ export class UsersComponent implements OnInit {
   dataSource: any;
 
   ngOnInit(): void {
+    this.refreshList();
+  }
+
+  refreshList() {
     this.service.getUsers().subscribe((data) => {
       this.dataSource = data;
     });
@@ -41,7 +45,13 @@ export class UsersComponent implements OnInit {
       .open(UserDialogComponent)
       .afterClosed()
       .subscribe((result) => {
-        // this.refreshList();
+        this.refreshList();
       });
+  }
+
+  deleteUser(user_id: number) {
+    this.service.deleteUser(user_id).subscribe((user) => {
+      this.refreshList();
+    });
   }
 }

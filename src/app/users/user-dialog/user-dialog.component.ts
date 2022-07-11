@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { UserService } from 'src/app/user.service';
+import { User } from '../users.component';
 
 @Component({
   selector: 'app-user-dialog',
@@ -7,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./user-dialog.component.scss'],
 })
 export class UserDialogComponent implements OnInit {
-  constructor() {}
+  constructor(private service: UserService) {}
 
   ngOnInit(): void {}
 
@@ -20,6 +22,6 @@ export class UserDialogComponent implements OnInit {
   });
 
   addNewUser() {
-    //this.service.addNewProduct(this.userForm.value as User).subscribe();
+    this.service.addNewUser(this.userForm.value as User).subscribe();
   }
 }
