@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,8 +20,8 @@ import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
   declarations: [
     AppComponent,
     ProductsComponent,
-    ProductDialogComponent,
     UsersComponent,
+    ProductDialogComponent,
     UserDialogComponent,
   ],
 
