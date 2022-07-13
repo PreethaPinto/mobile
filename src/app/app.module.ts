@@ -15,6 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
+import { HeaderComponent } from './header/header.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HomeComponent } from './home/home.component';
+import { DashbordComponent } from './dashboard/dashbord.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
     UsersComponent,
     ProductDialogComponent,
     UserDialogComponent,
+    HeaderComponent,
+    SidenavComponent,
+    HomeComponent,
+    DashbordComponent,
   ],
 
   imports: [
