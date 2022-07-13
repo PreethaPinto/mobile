@@ -19,6 +19,8 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { DashbordComponent } from './dashboard/dashbord.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { DashbordComponent } from './dashboard/dashbord.component';
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

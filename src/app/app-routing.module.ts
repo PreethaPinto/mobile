@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { DashbordComponent } from './dashboard/dashbord.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'users', component: UsersComponent },
   //{ path: 'header', component: HeaderComponent },
