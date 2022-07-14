@@ -1,15 +1,21 @@
 <mat-toolbar>
   <mat-toolbar-row class="justify-content-inbetween">
-    <button mat-icon-button><mat-icon>menu</mat-icon></button>
-
-    <div>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="row">
       <ul>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" class="user">
             User Name
-            <mat-icon>keyboard_arrow_down</mat-icon>
+            <mat-icon class="user-image-icon">keyboard_arrow_down</mat-icon>
           </button>
-          <mat-menu #menu="matMenu"></mat-menu>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              Logout
+            </button>
+          </mat-menu>
         </li>
       </ul>
     </div>
