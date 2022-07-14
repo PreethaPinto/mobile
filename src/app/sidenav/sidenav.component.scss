@@ -1,0 +1,25 @@
+img {
+  width: 100%;
+  height: 75px;
+}
+
+.mat-list-item {
+  color: white;
+  margin-left: 10px;
+  ::ng-deep .mat-list-item-content {
+    margin-right: 10px;
+    &:hover {
+      background-color: #444b4b;
+    }
+  }
+}
+
+.list-item-active {
+  color: #f2f5f7;
+  ::ng:deep .mat-list-item-content {
+    background-color: black;
+    &:hover {
+      background-color: black;
+    }
+  }
+}

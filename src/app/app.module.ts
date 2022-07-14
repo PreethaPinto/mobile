@@ -21,6 +21,8 @@ import { HomeComponent } from './home/home.component';
 import { DashbordComponent } from './dashboard/dashbord.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { MatListModule } from '@angular/material/list';
     HttpClientModule,
     MatSidenavModule,
     MatListModule,
+    MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

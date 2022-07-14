@@ -1,1 +1,17 @@
-<p>header works!</p>
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-inbetween">
+    <button mat-icon-button><mat-icon>menu</mat-icon></button>
+
+    <div>
+      <ul>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu">
+            User Name
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu"></mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
