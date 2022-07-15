@@ -19,7 +19,17 @@ export class ProductDialogComponent implements OnInit {
     manufacturer: new FormControl(''),
     price: new FormControl(),
     stock_on_hand: new FormControl(),
-    feature_id: new FormControl(),
+    weight: new FormControl(),
+    dimensions: new FormControl(),
+    OS: new FormControl(),
+    screensize: new FormControl(),
+    resolution: new FormControl(),
+    CPU: new FormControl(),
+    RAM: new FormControl(),
+    storage: new FormControl(),
+    battery: new FormControl(),
+    rear_camera: new FormControl(),
+    front_camera: new FormControl(),
   });
 
   addNewProduct() {
