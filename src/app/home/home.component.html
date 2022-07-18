@@ -1,3 +1,32 @@
 <div>
   <div class="home">Home</div>
 </div>
+
+<form [formGroup]="brandForm">
+  <mat-dialog-content class="'flex">
+    <div class="flex-item">
+      <mat-form-field appearance="fill">
+        <mat-label>Brand</mat-label>
+        <mat-select formControlName="brand_name" multiple>
+          <mat-option *ngFor="let brand of brands" [value]="brand">{{
+            brand
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="row">
+        <mat-card *ngFor="let product of products">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ product.manufacturer }}</mat-card-title>
+            <mat-card-subtitle>{{ product.product_name }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="product.imageUrl" alt="Photo of phone" />
+          <mat-card-content>
+            <div>{{ product.price | currency }}</div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div></mat-dialog-content
+  >
+</form>

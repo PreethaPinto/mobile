@@ -23,6 +23,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatToolbarModule,
     MatMenuModule,
+    MatCardModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

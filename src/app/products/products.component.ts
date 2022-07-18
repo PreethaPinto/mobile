@@ -8,6 +8,7 @@ export interface Product {
   product_name: string;
   product_model: string;
   manufacturer: string;
+  imageUrl: string;
   price: number;
   stock_on_hand: number;
   feature_id: number;
