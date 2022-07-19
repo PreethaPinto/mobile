@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Product, ProductsComponent } from './products/products.component';
@@ -11,8 +11,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseURL + 'products');
+  getProducts(products: string[]): Observable<Product[]> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.appendAll({ products: products.toString() });
+    return this.http.get<Product[]>(this.baseURL + 'products?' + queryParams);
   }
 
   addNewProduct(product: Product) {

@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   }
 
   refreshList() {
-    this.service.getProducts().subscribe((data) => {
+    this.service.getProducts([]).subscribe((data) => {
       this.dataSource = data;
     });
   }

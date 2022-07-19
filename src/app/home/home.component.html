@@ -5,11 +5,20 @@
 <form [formGroup]="brandForm">
   <mat-dialog-content class="'flex">
     <div class="flex-item">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="brand">
         <mat-label>Brand</mat-label>
-        <mat-select formControlName="brand_name" multiple>
+        <mat-select formControlName="brandNames" multiple>
           <mat-option *ngFor="let brand of brands" [value]="brand">{{
             brand
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="price">
+        <mat-label>Price</mat-label>
+        <mat-select formControlName="price" multiple>
+          <mat-option *ngFor="let price of prices" [value]="price">{{
+            price
           }}</mat-option>
         </mat-select>
       </mat-form-field>
