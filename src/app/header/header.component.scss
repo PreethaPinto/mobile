@@ -2,12 +2,22 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #f7f7f7;
+  background: #3c4f7c;
+  color: white;
 }
 
-.mat-toolbar-row {
-  display: flex;
-  justify-content: space-between;
+// .mat-toolbar-row {
+//   display: flex;
+//   justify-content: space-between;
+// }
+.row {
+  position: fixed;
+  right: 0;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
 }
 
 ul {
@@ -24,4 +34,13 @@ button {
 
 .user {
   font-size: 14px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0%;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: #cccccc;
 }
