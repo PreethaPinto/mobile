@@ -12,11 +12,15 @@ import { filter } from 'rxjs';
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   brands: string[] = [];
-  prices: string[] = ['Less than $500', '500 - 1000', 'More than 1000'];
+  prices: Price[] = [
+    { value: '<500', label: 'Less than $500' },
+    { value: '500-1000', label: '500 - 1000' },
+    { value: '>1000', label: 'More than 1000' },
+  ];
   constructor(private service: ProductService) {}
 
   ngOnInit(): void {
-    this.service.getProducts([]).subscribe((data) => {
+    this.service.getProducts([], []).subscribe((data) => {
       this.products = data;
       this.brands = [...new Set(this.products.map((x) => x.product_name))];
     });
@@ -24,7 +28,15 @@ export class HomeComponent implements OnInit {
     this.brandForm.controls.brandNames.valueChanges
       .pipe(filter(Boolean))
       .subscribe((brandNames) => {
-        this.service.getProducts(brandNames).subscribe((data) => {
+        this.service.getProducts(brandNames, []).subscribe((data) => {
+          this.products = data;
+        });
+      });
+
+    this.brandForm.controls.price.valueChanges
+      .pipe(filter(Boolean))
+      .subscribe((price) => {
+        this.service.getProducts([], price).subscribe((data) => {
           this.products = data;
         });
       });
@@ -32,6 +44,11 @@ export class HomeComponent implements OnInit {
 
   brandForm = new FormGroup({
     brandNames: new FormControl<string[]>([]),
-    price: new FormControl(''),
+    price: new FormControl<string[]>([]),
   });
+}
+
+export interface Price {
+  label: string;
+  value: string;
 }

@@ -11,9 +11,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(products: string[]): Observable<Product[]> {
+  getProducts(products: string[], prices: string[]): Observable<Product[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.appendAll({ products: products.toString() });
+    queryParams = queryParams.appendAll({ prices: prices.toString() });
+
     return this.http.get<Product[]>(this.baseURL + 'products?' + queryParams);
   }
 
