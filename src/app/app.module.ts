@@ -25,6 +25,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { OrderDialogComponent } from './home/order-dialog/order-dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     SidenavComponent,
     HomeComponent,
     DashbordComponent,
+    OrderDialogComponent,
   ],
 
   imports: [

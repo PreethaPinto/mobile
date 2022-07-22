@@ -1,13 +1,7 @@
-// .home {
-//   padding: 3px;
-//   margin-top: 11px;
-//   background-color: #3c4f7c;
-//   color: white;
-//   min-height: 50px;
-//   font-size: 36px;
-//   padding-top: 30px;
-//   padding-left: 10px;
-// }
+.mat-raised-button.mat-primary {
+  background-color: #3c4f7c;
+}
+
 mat-card.mat-card {
   max-width: 250px;
 }
@@ -18,4 +12,9 @@ mat-card.mat-card {
 .brand,
 .price {
   padding-right: 50px;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
 }
