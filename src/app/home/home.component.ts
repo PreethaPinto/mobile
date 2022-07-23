@@ -15,6 +15,7 @@ export interface Customer {
   postcode?: number;
   city: string;
   state: string;
+  // quantity?: number;
 }
 
 @Component({
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
     'postcode',
     'city',
     'state',
+    'quantity',
   ];
   dataSource: any;
 
@@ -72,8 +74,11 @@ export class HomeComponent implements OnInit {
     price: new FormControl<string[]>([]),
   });
 
-  orderProduct() {
-    this.dialog.open(OrderDialogComponent).afterClosed().subscribe();
+  orderProduct(product: Product) {
+    this.dialog
+      .open(OrderDialogComponent, { data: product })
+      .afterClosed()
+      .subscribe();
   }
 }
 

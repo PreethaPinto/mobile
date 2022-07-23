@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Customer } from '../home.component';
 import { HomeService } from 'src/app/home.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Product } from 'src/app/products/products.component';
 
 @Component({
   selector: 'app-order-dialog',
@@ -9,7 +11,10 @@ import { HomeService } from 'src/app/home.service';
   styleUrls: ['./order-dialog.component.scss'],
 })
 export class OrderDialogComponent implements OnInit {
-  constructor(private service: HomeService) {}
+  constructor(
+    private service: HomeService,
+    @Inject(MAT_DIALOG_DATA) public product: Product
+  ) {}
 
   ngOnInit(): void {}
 
@@ -21,6 +26,8 @@ export class OrderDialogComponent implements OnInit {
     postcode: new FormControl(),
     city: new FormControl(),
     state: new FormControl(),
+    quantity: new FormControl(),
+    product_id: new FormControl(this.product.product_id),
   });
 
   orderProduct() {
