@@ -28,6 +28,7 @@ export class OrderDialogComponent implements OnInit {
     state: new FormControl(),
     quantity: new FormControl(),
     product_id: new FormControl(this.product.product_id),
+    // price: new FormControl(this.product.price),
   });
 
   orderProduct() {

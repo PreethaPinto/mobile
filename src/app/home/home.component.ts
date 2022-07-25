@@ -15,7 +15,7 @@ export interface Customer {
   postcode?: number;
   city: string;
   state: string;
-  // quantity?: number;
+  quantity?: number;
 }
 
 @Component({
