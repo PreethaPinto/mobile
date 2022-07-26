@@ -26,6 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { OrderDialogComponent } from './home/order-dialog/order-dialog.component';
+import { LoginDialogComponent } from './sidenav/login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { OrderDialogComponent } from './home/order-dialog/order-dialog.component
     HomeComponent,
     DashbordComponent,
     OrderDialogComponent,
+    LoginDialogComponent,
   ],
 
   imports: [

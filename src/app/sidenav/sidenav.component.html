@@ -3,10 +3,18 @@
   <a mat-list-item routerLink="/home" routerLinkActive="=list-item-active"
     >Home</a
   >
-  <a mat-list-item routerLink="/products" routerLinkActive="=list-item-active"
+  <a
+    mat-list-item
+    routerLink="/products"
+    routerLinkActive="=list-item-active"
+    (click)="loginUser()"
     >Products</a
   >
-  <a mat-list-item routerLink="/users" routerLinkActive="=list-item-active"
+  <a
+    mat-list-item
+    routerLink="/users"
+    routerLinkActive="=list-item-active"
+    (click)="loginUser()"
     >Users</a
   >
 </mat-nav-list>

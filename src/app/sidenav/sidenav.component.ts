@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
+  constructor(public dialog: MatDialog) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  loginUser() {
+    this.dialog.open(LoginDialogComponent);
+    // .afterClosed()
+    // .subscribe((result) => {
+    //   this.refreshList();
+    // });
   }
-
 }
