@@ -8,9 +8,9 @@ export interface Login {
 }
 
 @Component({
-  selector: 'app-login-dialog',
-  templateUrl: './login-dialog.component.html',
-  styleUrls: ['./login-dialog.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginDialogComponent implements OnInit {
   constructor(private service: LoginService) {}

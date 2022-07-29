@@ -26,7 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { OrderDialogComponent } from './home/order-dialog/order-dialog.component';
-import { LoginDialogComponent } from './header/login-dialog/login-dialog.component';
+import { LoginDialogComponent } from './header/login/login.component';
 
 @NgModule({
   declarations: [

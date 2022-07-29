@@ -6,9 +6,16 @@
 
     <h1>THE MOBILE HOUR</h1>
     <div class="row">
-      <button mat-raised-button color="primary" (click)="loginUser()">
-        Login
-      </button>
+      <a routerLink="/login"
+        ><button
+          class="btn btn-success pull-right"
+          routerLinkActive="=list-item-active"
+          mat-raised-button
+          color="primary"
+        >
+          Login
+        </button></a
+      >
       <!-- <ul>
         <li>
           <button mat-button [matMenuTriggerFor]="menu" class="user">

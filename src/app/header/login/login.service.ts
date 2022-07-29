@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LoginDialogComponent, Login } from './login-dialog.component';
+import { LoginDialogComponent, Login } from './login.component';
 import { HeaderComponent } from '../header.component';
 
 @Injectable({

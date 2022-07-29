@@ -26,11 +26,11 @@ ul {
   }
 }
 
-button {
-  border: 0;
-  outline: none;
-  background: transparent;
-}
+// button {
+//   border: 0;
+//   outline: none;
+//   background: transparent;
+// }
 
 .user {
   font-size: 14px;
@@ -43,4 +43,9 @@ button {
   width: 100%;
   text-align: center;
   background-color: #cccccc;
+}
+
+.mat-raised-button.mat-primary {
+  background-color: #3c4f7c;
+  margin: auto 2em;
 }
