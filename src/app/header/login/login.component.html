@@ -2,43 +2,38 @@
   <mat-card-content>
     <div class="header"><h2>LOGIN</h2></div>
 
-    <form [formGroup]="loginForm">
+    <form>
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput />
+        <input
+          matInput
+          [(ngModel)]="loginUserData.username"
+          name="username"
+          required
+        />
       </mat-form-field>
       <br />
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput />
+        <input
+          matInput
+          [(ngModel)]="loginUserData.password"
+          name="password"
+          required=""
+        />
       </mat-form-field>
       <mat-card-actions>
         <button
           mat-raised-button
           color="primary"
-          [disabled]="loginForm.invalid"
-          mat-dialog-close
+          class="btn btn-success pull-right"
           (click)="loginUser()"
         >
           Login
         </button>
 
-        <button mat-button [mat-dialog-close]="true">Cancel</button>
+        <!-- <button mat-button [mat-dialog-close]="true">Cancel</button> -->
       </mat-card-actions>
     </form>
   </mat-card-content>
 </mat-card>
-
-<!-- <mat-dialog-actions>
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="loginForm.invalid"
-      mat-dialog-close
-      (click)="loginUser()"
-    >
-      Login
-    </button>
-
-    <button mat-button [mat-dialog-close]="true">Cancel</button>
-  </mat-dialog-actions> -->

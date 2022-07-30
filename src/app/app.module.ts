@@ -12,7 +12,8 @@ import { ProductsComponent } from './products/products.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +28,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { OrderDialogComponent } from './home/order-dialog/order-dialog.component';
 import { LoginDialogComponent } from './header/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { HomeService } from './home.service';
 
 @NgModule({
   declarations: [
@@ -61,8 +66,18 @@ import { LoginDialogComponent } from './header/login/login.component';
     MatMenuModule,
     MatCardModule,
     MatSelectModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService,
+    HomeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

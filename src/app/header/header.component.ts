@@ -17,11 +17,4 @@ export class HeaderComponent implements OnInit {
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
   }
-
-  // loginUser() {
-  //   this.dialog
-  //     .open(LoginDialogComponent)
-  //     .afterClosed()
-  //     .subscribe((result) => {});
-  // }
 }
