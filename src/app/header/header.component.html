@@ -6,13 +6,26 @@
 
     <h1>THE MOBILE HOUR</h1>
     <div class="row">
-      <a routerLink="/login"
+      <a
+        *ngIf="!_authService.loggedIn()"
+        routerLink="/login"
+        routerLinkActive="active"
         ><button
           routerLinkActive="=list-item-active"
           mat-raised-button
           color="primary"
         >
           Login
+        </button></a
+      >
+      <a *ngIf="_authService.loggedIn()"
+        ><button
+          routerLinkActive="=list-item-active"
+          mat-raised-button
+          color="secondary"
+          (click)="_authService.logoutUser()"
+        >
+          Logout
         </button></a
       >
       <!-- <ul>

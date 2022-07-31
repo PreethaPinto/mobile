@@ -6,10 +6,6 @@
   color: white;
 }
 
-// .mat-toolbar-row {
-//   display: flex;
-//   justify-content: space-between;
-// }
 .row {
   position: fixed;
   right: 0;
@@ -26,12 +22,6 @@ ul {
   }
 }
 
-// button {
-//   border: 0;
-//   outline: none;
-//   background: transparent;
-// }
-
 .user {
   font-size: 14px;
 }
@@ -47,5 +37,9 @@ ul {
 
 .mat-raised-button.mat-primary {
   background-color: #3c4f7c;
+  margin: auto 2em;
+}
+
+.mat-raised-button.mat-secondary {
   margin: auto 2em;
 }

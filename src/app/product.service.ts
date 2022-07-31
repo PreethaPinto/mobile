@@ -22,7 +22,6 @@ export class ProductService {
   addNewProduct(product: Product) {
     const headers = { 'content-type': 'application/json' };
     const body = JSON.stringify(product);
-    console.log(body);
     return this.http.post(this.baseURL + 'products', body, {
       headers: headers,
     });
@@ -30,5 +29,13 @@ export class ProductService {
 
   deleteProduct(id: number) {
     return this.http.delete(this.baseURL + 'products/' + id);
+  }
+
+  editProduct(product: Product) {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(product);
+    return this.http.put(this.baseURL + 'products', body, {
+      headers: headers,
+    });
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductService } from '../product.service';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 export interface Product {
   product_id?: number;
@@ -12,6 +14,17 @@ export interface Product {
   price: number;
   stock_on_hand: number;
   feature_id: number;
+  weight: number;
+  dimensions: number;
+  OS: number;
+  screensize: number;
+  resolution: number;
+  CPU: number;
+  RAM: number;
+  storage: number;
+  battery: number;
+  rear_camera: number;
+  front_camera: number;
 }
 
 @Component({
@@ -20,6 +33,12 @@ export interface Product {
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  constructor(
+    public dialog: MatDialog,
+    private service: ProductService,
+    private router: Router
+  ) {}
+
   displayedColumns: string[] = [
     'product_id',
     'product_name',
@@ -29,6 +48,7 @@ export class ProductsComponent implements OnInit {
     'stock_on_hand',
     'feature_id',
     'delete',
+    'edit',
   ];
 
   dataSource: any;
@@ -38,12 +58,18 @@ export class ProductsComponent implements OnInit {
   }
 
   refreshList() {
-    this.service.getProducts([], []).subscribe((data) => {
-      this.dataSource = data;
-    });
+    this.service.getProducts([], []).subscribe(
+      (res) => (this.dataSource = res),
+      (err) => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.router.navigate(['/login']);
+          }
+        }
+      }
+    );
   }
 
-  constructor(public dialog: MatDialog, private service: ProductService) {}
   addNewProduct() {
     this.dialog
       .open(ProductDialogComponent)
@@ -57,5 +83,14 @@ export class ProductsComponent implements OnInit {
     this.service.deleteProduct(product_id).subscribe((product) => {
       this.refreshList();
     });
+  }
+
+  editProduct(product: Product) {
+    this.dialog
+      .open(ProductDialogComponent, { data: product })
+      .afterClosed()
+      .subscribe((result) => {
+        this.refreshList();
+      });
   }
 }

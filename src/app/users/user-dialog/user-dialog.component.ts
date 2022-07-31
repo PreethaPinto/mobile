@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from 'src/app/user.service';
 import { User } from '../users.component';
 
@@ -9,7 +10,10 @@ import { User } from '../users.component';
   styleUrls: ['./user-dialog.component.scss'],
 })
 export class UserDialogComponent implements OnInit {
-  constructor(private service: UserService) {}
+  constructor(
+    private service: UserService,
+    @Inject(MAT_DIALOG_DATA) user: User
+  ) {}
 
   ngOnInit(): void {}
 

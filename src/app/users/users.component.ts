@@ -17,6 +17,8 @@ export interface User {
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
+  constructor(public dialog: MatDialog, private service: UserService) {}
+
   displayedColumns: string[] = [
     'user_id',
     'firstname',
@@ -24,6 +26,7 @@ export class UsersComponent implements OnInit {
     'user_role',
     'username',
     'delete',
+    'edit',
   ];
 
   dataSource: any;
@@ -38,8 +41,6 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  constructor(public dialog: MatDialog, private service: UserService) {}
-
   addNewUser() {
     this.dialog
       .open(UserDialogComponent)
@@ -53,5 +54,14 @@ export class UsersComponent implements OnInit {
     this.service.deleteUser(user_id).subscribe((user) => {
       this.refreshList();
     });
+  }
+
+  editUser(user: User) {
+    this.dialog
+      .open(UserDialogComponent, { data: user })
+      .afterClosed()
+      .subscribe((result) => {
+        this.refreshList();
+      });
   }
 }
