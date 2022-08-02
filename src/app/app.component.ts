@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'mobile';
-  sideBarOpen = true;
+  // title = 'mobile';
+  // sideBarOpen = true;
 
   ngOnInit() {}
 
-  sideBarToggler() {
-    this.sideBarOpen = !this.sideBarOpen;
-  }
+  // sideBarToggler() {
+  //   this.sideBarOpen = !this.sideBarOpen;
+  // }
 }

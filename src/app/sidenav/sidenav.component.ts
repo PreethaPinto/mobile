@@ -12,11 +12,11 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  loginUser() {
-    this.dialog.open(LoginDialogComponent);
-    // .afterClosed()
-    // .subscribe((result) => {
-    //   this.refreshList();
-    // });
-  }
+  // loginUser() {
+  //   this.dialog.open(LoginDialogComponent);
+  //   // .afterClosed()
+  //   // .subscribe((result) => {
+  //   //   this.refreshList();
+  //   // });
+  // }
 }

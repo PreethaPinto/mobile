@@ -32,6 +32,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { HomeService } from './home.service';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HomeService } from './home.service';
     DashbordComponent,
     OrderDialogComponent,
     LoginDialogComponent,
+    ChangelogComponent,
   ],
 
   imports: [

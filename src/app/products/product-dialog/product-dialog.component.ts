@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductService } from 'src/app/product.service';
 import { Product } from '../products.component';
@@ -18,25 +18,43 @@ export class ProductDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   productForm = new FormGroup({
-    product_id: new FormControl(this.product?.product_id),
-    feature_id: new FormControl(this.product?.feature_id),
-    product_name: new FormControl(this.product?.product_name),
-    product_model: new FormControl(this.product?.product_model),
-    manufacturer: new FormControl(this.product?.manufacturer),
-    price: new FormControl(this.product?.price),
-    stock_on_hand: new FormControl(this.product?.stock_on_hand),
-    imageUrl: new FormControl(this.product?.imageUrl),
-    weight: new FormControl(this.product?.weight),
-    dimensions: new FormControl(this.product?.dimensions),
-    OS: new FormControl(this.product?.OS),
-    screensize: new FormControl(this.product?.screensize),
-    resolution: new FormControl(this.product?.resolution),
-    CPU: new FormControl(this.product?.CPU),
-    RAM: new FormControl(this.product?.RAM),
-    storage: new FormControl(this.product?.storage),
-    battery: new FormControl(this.product?.battery),
-    rear_camera: new FormControl(this.product?.rear_camera),
-    front_camera: new FormControl(this.product?.front_camera),
+    product_id: new FormControl(this.product?.product_id, Validators.required),
+    feature_id: new FormControl(this.product?.feature_id, Validators.required),
+    product_name: new FormControl(
+      this.product?.product_name,
+      Validators.required
+    ),
+    product_model: new FormControl(
+      this.product?.product_model,
+      Validators.required
+    ),
+    manufacturer: new FormControl(
+      this.product?.manufacturer,
+      Validators.required
+    ),
+    price: new FormControl(this.product?.price, Validators.required),
+    stock_on_hand: new FormControl(
+      this.product?.stock_on_hand,
+      Validators.required
+    ),
+    imageUrl: new FormControl(this.product?.imageUrl, Validators.required),
+    weight: new FormControl(this.product?.weight, Validators.required),
+    dimensions: new FormControl(this.product?.dimensions, Validators.required),
+    OS: new FormControl(this.product?.OS, Validators.required),
+    screensize: new FormControl(this.product?.screensize, Validators.required),
+    resolution: new FormControl(this.product?.resolution, Validators.required),
+    CPU: new FormControl(this.product?.CPU, Validators.required),
+    RAM: new FormControl(this.product?.RAM, Validators.required),
+    storage: new FormControl(this.product?.storage, Validators.required),
+    battery: new FormControl(this.product?.battery, Validators.required),
+    rear_camera: new FormControl(
+      this.product?.rear_camera,
+      Validators.required
+    ),
+    front_camera: new FormControl(
+      this.product?.front_camera,
+      Validators.required
+    ),
   });
 
   addNewProduct() {
