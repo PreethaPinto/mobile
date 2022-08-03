@@ -51,185 +51,27 @@
       <a routerLink="/login" routerLinkActive="active" class="menu-item"
         ><button
           routerLinkActive="=list-item-active"
+          *ngIf="!_authService.loggedIn()"
           mat-raised-button
           color="primary"
         >
           Login
         </button></a
       >
+      <a mat-list-item *ngIf="_authService.loggedIn()"
+        ><button
+          routerLinkActive="=list-item-active"
+          mat-raised-button
+          color="secondary"
+          (click)="_authService.logoutUser()"
+        >
+          Logout
+        </button></a
+      >
     </li>
   </ul>
 </nav>
 
-<!-- <header class="navbar">
-  <div>
-    <div class="flex">
-      <div class="container" fxLayout="row-wrap" flxLayoutAlign="start center">
-        <div
-          class="navbar-mobile-top"
-          flxLayout="row"
-          flxLayoutWrap="wrap"
-          flxLayoutAlign="start center"
-        >
-          <div class="navbar-logo">
-            <a routerLink="/home">THE MOBILE HOUR</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <button
-      mat-icon-button
-      color="accent"
-      class="burger"
-      (click)="toggleMenu()"
-    >
-      <mat-icon>{{ isMenuOpen ? "menu" : "close" }}</mat-icon>
-    </button>
-  </div>
-
-  <div>
-    <div fxFlex class="top-navbar">
-      <span fxFlex></span>
-      <mat-nav-list class="menu" [class.is-open]="isMenuOpen">
-        <a
-          mat-list-item
-          class="menu-item"
-          routerLink="/home"
-          routerLinkActive="=list-item-active"
-          >Home</a
-        >
-        <a
-          mat-list-item
-          class="menu-item"
-          routerLink="/products"
-          routerLinkActive="=list-item-active"
-          >Products</a
-        >
-        <a
-          mat-list-item
-          class="menu-item"
-          routerLink="/users"
-          routerLinkActive="=list-item-active"
-          >Users</a
-        >
-        <a
-          mat-list-item
-          class="menu-item"
-          routerLink="/changelog"
-          routerLinkActive="=list-item-active"
-          >Change Log</a
-        >
-
-        <a
-          mat-list-item
-          *ngIf="!_authService.loggedIn()"
-          routerLink="/login"
-          routerLinkActive="active"
-          class="menu-item"
-          ><button
-            routerLinkActive="=list-item-active"
-            mat-raised-button
-            color="primary"
-          >
-            Login
-          </button></a
-        >
-        <a mat-list-item *ngIf="_authService.loggedIn()"
-          ><button
-            routerLinkActive="=list-item-active"
-            mat-raised-button
-            color="secondary"
-            (click)="_authService.logoutUser()"
-          >
-            Logout
-          </button></a
-        >
-      </mat-nav-list>
-    </div>
-  </div>
-</header> -->
-
 <div class="footer">
   <span class="footer-text">&copy; The Mobile Hour 2022</span>
 </div>
-
-<!-- <mat-toolbar>
-  <mat-toolbar-row>
-    <header class="navbar" [ngClass]="{ 'navbar-fixed': isFixedNavbar }">
-      <h1>THE MOBILE HOUR</h1>
-
-      <button
-        mat-icon-button
-        color="accent"
-        class="navbar-toggle"
-        (click)="toggleNavbar()"
-      >
-        <mat-icon>{{ !navbarOpened ? "menu" : "close" }}</mat-icon>
-      </button>
-    </header>
-
-    <div class="flex">
-      <mat-nav-list>
-        <a
-          mat-list-item
-          class="hover"
-          routerLink="/home"
-          routerLinkActive="=list-item-active"
-          >Home</a
-        >
-        <a
-          mat-list-item
-          class="hover"
-          routerLink="/products"
-          routerLinkActive="=list-item-active"
-          >Products</a
-        >
-        <a
-          mat-list-item
-          class="hover"
-          routerLink="/users"
-          routerLinkActive="=list-item-active"
-          >Users</a
-        >
-        <a
-          mat-list-item
-          class="hover"
-          routerLink="/changelog"
-          routerLinkActive="=list-item-active"
-          >Change Log</a
-        >
-
-        <a
-          mat-list-item
-          *ngIf="!_authService.loggedIn()"
-          routerLink="/login"
-          routerLinkActive="active"
-          ><button
-            routerLinkActive="=list-item-active"
-            mat-raised-button
-            color="primary"
-          >
-            Login
-          </button></a
-        >
-        <a mat-list-item *ngIf="_authService.loggedIn()"
-          ><button
-            routerLinkActive="=list-item-active"
-            mat-raised-button
-            color="secondary"
-            (click)="_authService.logoutUser()"
-          >
-            Logout
-          </button></a
-        >
-      </mat-nav-list>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<div class="footer">
-  <span class="footer-text">&copy; The Mobile Hour 2022</span>
-</div> -->

@@ -19,7 +19,6 @@ import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
-import { DashbordComponent } from './dashboard/dashbord.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -33,6 +32,8 @@ import { AuthService } from './auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { HomeService } from './home.service';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { ChangelogComponent } from './changelog/changelog.component';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    DashbordComponent,
     OrderDialogComponent,
     LoginDialogComponent,
     ChangelogComponent,
@@ -69,6 +69,8 @@ import { ChangelogComponent } from './changelog/changelog.component';
     MatCardModule,
     MatSelectModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     AuthGuard,

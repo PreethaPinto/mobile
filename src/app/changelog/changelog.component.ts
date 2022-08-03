@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChangelogService } from '../changelog.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { filter } from 'rxjs';
 
 export interface Changelog {
   product_name: string;
@@ -29,19 +30,45 @@ export class ChangelogComponent implements OnInit {
   changeLog: Changelog[] = [];
   products: string[] = [];
   users: string[] = [];
+  dates: string[] = [];
 
   ngOnInit(): void {
-    this.refreshList();
-  }
-
-  refreshList() {
     this.service.getChangeLog().subscribe((data) => {
       this.dataSource = data;
     });
+
+    this.service.getProduct([]).subscribe((data: any) => {
+      this.changeLog = data;
+      this.products = [...new Set(this.changeLog.map((x) => x.product_name))];
+    });
+
+    this.changelogForm.controls.productNames.valueChanges
+      .pipe(filter(Boolean))
+      .subscribe((productNames) => {
+        this.service.getProduct(productNames).subscribe((data: any) => {
+          this.products = data;
+        });
+      });
+
+    this.service.getUsers([]).subscribe((data: any) => {
+      this.changeLog = data;
+      this.users = [...new Set(this.changeLog.map((x) => x.username))];
+    });
+
+    this.changelogForm.controls.userNames.valueChanges
+      .pipe(filter(Boolean))
+      .subscribe((userNames) => {
+        this.service.getUsers(userNames).subscribe((data: any) => {
+          this.users = data;
+        });
+      });
   }
 
   changelogForm = new FormGroup({
-    products: new FormControl<string[]>([]),
-    user: new FormControl<string[]>([]),
+    productNames: new FormControl<string[]>([]),
+    userNames: new FormControl<string[]>([]),
+    date: new FormControl<string[]>([]),
+    start: new FormControl<string[]>([]),
+    end: new FormControl<string[]>([]),
   });
 }

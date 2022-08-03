@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Customer } from '../home.component';
 import { HomeService } from 'src/app/home.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -19,15 +19,16 @@ export class OrderDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   orderForm = new FormGroup({
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
-    cust_phone: new FormControl(''),
-    cust_address: new FormControl(),
-    postcode: new FormControl(),
-    city: new FormControl(),
-    state: new FormControl(),
-    quantity: new FormControl(),
+    firstname: new FormControl('', Validators.required),
+    lastname: new FormControl('', Validators.required),
+    cust_phone: new FormControl('', Validators.required),
+    cust_address: new FormControl('', Validators.required),
+    postcode: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required),
+    state: new FormControl('', Validators.required),
+    quantity: new FormControl('', Validators.required),
     product_id: new FormControl(this.product.product_id),
+
     // price: new FormControl(this.product.price),
   });
 

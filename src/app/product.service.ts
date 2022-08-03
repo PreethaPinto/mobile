@@ -19,6 +19,13 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseURL + 'products?' + queryParams);
   }
 
+  // getProduct(products: string[]): Observable<Product[]> {
+  //   let queryParams = new HttpParams();
+  //   queryParams = queryParams.appendAll({ products: products.toString() });
+
+  //   return this.http.get<Product[]>(this.baseURL + 'products?' + queryParams);
+  // }
+
   addNewProduct(product: Product) {
     const headers = { 'content-type': 'application/json' };
     const body = JSON.stringify(product);
