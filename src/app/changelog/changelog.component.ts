@@ -33,42 +33,65 @@ export class ChangelogComponent implements OnInit {
   dates: string[] = [];
 
   ngOnInit(): void {
-    this.service.getChangeLog().subscribe((data) => {
-      this.dataSource = data;
-    });
+    this.service
+      .getChangeLog(this.changelogForm.value as ChangeLogFilter)
+      .subscribe((data) => {
+        this.dataSource = data;
+      });
 
     this.service.getProduct([]).subscribe((data: any) => {
       this.changeLog = data;
-      this.products = [...new Set(this.changeLog.map((x) => x.product_name))];
+      this.products = this.changeLog
+        .map((x) => x.product_name)
+        .filter(this.onlyUnique);
+      this.users = this.changeLog
+        .map((x) => x.username)
+        .filter(this.onlyUnique);
     });
 
-    this.changelogForm.controls.productNames.valueChanges
-      .pipe(filter(Boolean))
-      .subscribe((productNames) => {
-        this.service.getProduct(productNames).subscribe((data: any) => {
-          this.products = data;
-        });
+    this.changelogForm.valueChanges.subscribe((value) => {
+      this.service.getChangeLog(value as ChangeLogFilter).subscribe((data) => {
+        this.dataSource = data;
       });
-
-    this.service.getUsers([]).subscribe((data: any) => {
-      this.changeLog = data;
-      this.users = [...new Set(this.changeLog.map((x) => x.username))];
     });
 
-    this.changelogForm.controls.userNames.valueChanges
-      .pipe(filter(Boolean))
-      .subscribe((userNames) => {
-        this.service.getUsers(userNames).subscribe((data: any) => {
-          this.users = data;
-        });
-      });
+    // this.changelogForm.controls.productNames.valueChanges
+    //   .pipe(filter(Boolean))
+    //   .subscribe((productNames) => {
+    //     this.service.getProduct(productNames).subscribe((data: any) => {
+    //       this.products = data;
+    //     });
+    //   });
+
+    // this.service.getUsers([]).subscribe((data: any) => {
+    //   this.changeLog = data;
+    //   this.users = this.changeLog.map((x) => x.username);
+    // });
+
+    // this.changelogForm.controls.userNames.valueChanges
+    //   .pipe(filter(Boolean))
+    //   .subscribe((userNames) => {
+    //     this.service.getUsers(userNames).subscribe((data: any) => {
+    //       this.users = data;
+    //     });
+    //   });
+  }
+
+  onlyUnique(value: string, index: number, self: string[]) {
+    return self.indexOf(value) === index;
   }
 
   changelogForm = new FormGroup({
     productNames: new FormControl<string[]>([]),
     userNames: new FormControl<string[]>([]),
-    date: new FormControl<string[]>([]),
-    start: new FormControl<string[]>([]),
-    end: new FormControl<string[]>([]),
+    dateStart: new FormControl<Date | null>(null),
+    dateEnd: new FormControl<Date | null>(null),
   });
+}
+
+export interface ChangeLogFilter {
+  productNames: string[];
+  userNames: string[];
+  dateStart: Date | null;
+  dateEnd: Date | null;
 }
