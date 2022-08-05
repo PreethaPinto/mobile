@@ -43,7 +43,7 @@ export class UsersComponent implements OnInit {
 
   addNewUser() {
     this.dialog
-      .open(UserDialogComponent)
+      .open(UserDialogComponent, { width: '50vw' })
       .afterClosed()
       .subscribe((result) => {
         this.refreshList();
@@ -58,7 +58,7 @@ export class UsersComponent implements OnInit {
 
   editUser(user: User) {
     this.dialog
-      .open(UserDialogComponent, { data: user })
+      .open(UserDialogComponent, { data: user, width: '50vw' })
       .afterClosed()
       .subscribe((result) => {
         this.refreshList();

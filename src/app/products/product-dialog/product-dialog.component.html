@@ -1,119 +1,113 @@
 <h2 mat-dialog-title>Add a new product</h2>
 
 <form [formGroup]="productForm">
-  <mat-dialog-content class="'flex">
-    <div class="flex-item">
-      <mat-form-field appearance="fill">
-        <mat-label>Product Name</mat-label>
-        <input matInput formControlName="product_name" />
-      </mat-form-field>
-      <br />
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="product_name" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Product Model</mat-label>
-        <input matInput formControlName="product_model" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Product Model</mat-label>
+      <input matInput formControlName="product_model" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Manufacturer</mat-label>
-        <input matInput formControlName="manufacturer" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Manufacturer</mat-label>
+      <input matInput formControlName="manufacturer" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Image URL</mat-label>
-        <input matInput formControlName="imageUrl" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Price</mat-label>
-        <input
-          matInput
-          type="number"
-          class="example-right-align"
-          formControlName="price"
-        />
-        <span matPrefix>$&nbsp;</span>
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        type="number"
+        class="example-right-align"
+        formControlName="price"
+      />
+      <span matPrefix>$&nbsp;</span>
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Stock on hand</mat-label>
-        <input matInput formControlName="stock_on_hand" />
-      </mat-form-field>
-      <br />
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Stock on hand</mat-label>
+      <input matInput type="number" formControlName="stock_on_hand" />
+    </mat-form-field>
+    <br />
 
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Weight</mat-label>
-        <input matInput formControlName="weight" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Weight (g)</mat-label>
+      <input matInput type="number" formControlName="weight" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Dimensions</mat-label>
-        <input matInput formControlName="dimensions" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Dimensions (mm)</mat-label>
+      <input matInput formControlName="dimensions" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>OS</mat-label>
-        <input matInput formControlName="OS" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>OS</mat-label>
+      <input matInput formControlName="OS" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Screen Size</mat-label>
-        <input matInput formControlName="screensize" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Screen Size (in)</mat-label>
+      <input matInput type="number" formControlName="screensize" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Resolution</mat-label>
-        <input matInput formControlName="resolution" />
-      </mat-form-field>
-      <br />
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Resolution (pixels)</mat-label>
+      <input matInput formControlName="resolution" />
+    </mat-form-field>
+    <br />
 
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>CPU</mat-label>
-        <input matInput formControlName="CPU" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>CPU</mat-label>
+      <input matInput formControlName="CPU" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>RAM</mat-label>
-        <input matInput formControlName="RAM" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>RAM (GB)</mat-label>
+      <input matInput type="number" formControlName="RAM" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Storage</mat-label>
-        <input matInput formControlName="storage" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Storage (GB)</mat-label>
+      <input matInput type="number" formControlName="storage" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Battery</mat-label>
-        <input matInput formControlName="battery" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Battery (mAh)</mat-label>
+      <input matInput type="number" formControlName="battery" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Rear Camera</mat-label>
-        <input matInput formControlName="rear_camera" />
-      </mat-form-field>
-      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Rear Camera (MP)</mat-label>
+      <input matInput type="number" formControlName="rear_camera" />
+    </mat-form-field>
+    <br />
 
-      <mat-form-field appearance="fill">
-        <mat-label>Front Camera</mat-label>
-        <input matInput formControlName="front_camera" />
-      </mat-form-field>
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Front Camera (MP)</mat-label>
+      <input matInput type="number" formControlName="front_camera" />
+    </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button

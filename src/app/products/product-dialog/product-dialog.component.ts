@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductService } from 'src/app/product.service';
 import { Product } from '../products.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-dialog',
@@ -11,6 +12,7 @@ import { Product } from '../products.component';
 })
 export class ProductDialogComponent implements OnInit {
   constructor(
+    public dialog: MatDialog,
     private service: ProductService,
     @Inject(MAT_DIALOG_DATA) public product: Product
   ) {}
@@ -18,8 +20,8 @@ export class ProductDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   productForm = new FormGroup({
-    product_id: new FormControl(this.product?.product_id, Validators.required),
-    feature_id: new FormControl(this.product?.feature_id, Validators.required),
+    product_id: new FormControl(this.product?.product_id),
+    feature_id: new FormControl(this.product?.feature_id),
     product_name: new FormControl(
       this.product?.product_name,
       Validators.required
@@ -59,8 +61,16 @@ export class ProductDialogComponent implements OnInit {
 
   addNewProduct() {
     if (this.product)
-      this.service.editProduct(this.productForm.value as Product).subscribe();
+      this.service
+        .editProduct(this.productForm.value as Product)
+        .subscribe(() => {
+          this.dialog.closeAll();
+        });
     else
-      this.service.addNewProduct(this.productForm.value as Product).subscribe();
+      this.service
+        .addNewProduct(this.productForm.value as Product)
+        .subscribe(() => {
+          this.dialog.closeAll();
+        });
   }
 }

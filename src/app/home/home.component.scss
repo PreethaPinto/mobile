@@ -3,10 +3,16 @@
 }
 
 mat-card.mat-card {
-  max-width: 250px;
+  width: 250px;
+  margin: 10px;
+  background-color: rgb(233, 233, 224);
+  box-shadow: 2px 2px rgb(197, 196, 196);
 }
 .row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .brand,
@@ -17,4 +23,10 @@ mat-card.mat-card {
 .card-content {
   display: flex;
   justify-content: space-between;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

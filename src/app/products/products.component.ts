@@ -72,7 +72,7 @@ export class ProductsComponent implements OnInit {
 
   addNewProduct() {
     this.dialog
-      .open(ProductDialogComponent)
+      .open(ProductDialogComponent, { width: '75vw' })
       .afterClosed()
       .subscribe((result) => {
         this.refreshList();
@@ -87,7 +87,7 @@ export class ProductsComponent implements OnInit {
 
   editProduct(product: Product) {
     this.dialog
-      .open(ProductDialogComponent, { data: product })
+      .open(ProductDialogComponent, { data: product, width: '75vw' })
       .afterClosed()
       .subscribe((result) => {
         this.refreshList();
