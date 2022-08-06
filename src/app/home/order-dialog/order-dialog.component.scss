@@ -2,3 +2,15 @@
   background-color: #fc4a1a;
   cursor: pointer;
 }
+
+mat-dialog-content.mat-dialog-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+::ng-deep {
+  .mat-form-field {
+    flex: 1 1 30%;
+    margin: 10px;
+  }
+}

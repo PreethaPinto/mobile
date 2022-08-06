@@ -4,6 +4,7 @@ import { Customer } from '../home.component';
 import { HomeService } from 'src/app/home.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Product } from 'src/app/products/products.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-order-dialog',
@@ -13,7 +14,8 @@ import { Product } from 'src/app/products/products.component';
 export class OrderDialogComponent implements OnInit {
   constructor(
     private service: HomeService,
-    @Inject(MAT_DIALOG_DATA) public product: Product
+    @Inject(MAT_DIALOG_DATA) public product: Product,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -28,11 +30,19 @@ export class OrderDialogComponent implements OnInit {
     state: new FormControl('', Validators.required),
     quantity: new FormControl('', Validators.required),
     product_id: new FormControl(this.product.product_id),
-
-    // price: new FormControl(this.product.price),
   });
 
   orderProduct() {
-    this.service.orderProduct(this.orderForm.value as Customer).subscribe();
+    this.service
+      .orderProduct(this.orderForm.value as Customer)
+      .subscribe(() => {
+        this.snackBar.open(
+          'The order has been placed successfully!',
+          undefined,
+          {
+            duration: 3000,
+          }
+        );
+      });
   }
 }

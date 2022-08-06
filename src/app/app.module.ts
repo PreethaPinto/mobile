@@ -17,7 +17,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -34,6 +33,7 @@ import { HomeService } from './home.service';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProductDialogComponent,
     UserDialogComponent,
     HeaderComponent,
-    SidenavComponent,
     HomeComponent,
     OrderDialogComponent,
     LoginDialogComponent,
@@ -58,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
     MatTableModule,
     MatDialogModule,
     ReactiveFormsModule,

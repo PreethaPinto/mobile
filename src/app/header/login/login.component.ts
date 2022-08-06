@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
@@ -8,7 +9,11 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginDialogComponent implements OnInit {
-  constructor(public _authService: AuthService, private router: Router) {}
+  constructor(
+    public _authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
   loginUserData: any = {};
 
   ngOnInit(): void {}
@@ -20,7 +25,11 @@ export class LoginDialogComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/products']);
       },
-      (err) => console.log(err)
+      (err) => {
+        this.snackBar.open('Invalid username or password', undefined, {
+          duration: 3000,
+        });
+      }
     );
   }
 }

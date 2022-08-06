@@ -17,24 +17,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  // isFixedNavbar: any;
-  // // @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-  // @HostBinding('class.navbar-opened') navbarOpened = false;
-
-  // @HostListener('window:scroll', [])
-  // onWindowScroll() {
-  //   const offset =
-  //     window.pageYOffset ||
-  //     document.documentElement.scrollTop ||
-  //     document.body.scrollTop ||
-  //     0;
-  //   if (offset > 10) {
-  //     this.isFixedNavbar = true;
-  //   } else {
-  //     this.isFixedNavbar = false;
-  //   }
-  // }
-
   constructor(public _authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -44,11 +26,4 @@ export class HeaderComponent implements OnInit {
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
-  // toggleNavbar() {
-  //   this.navbarOpened = !this.navbarOpened;
-  // }
-  // toggleSideBar() {
-  //   this.toggleSideBarForMe.emit();
-  // }
 }

@@ -12,23 +12,28 @@ import { User } from '../users.component';
 export class UserDialogComponent implements OnInit {
   constructor(
     private service: UserService,
-    @Inject(MAT_DIALOG_DATA) user: User
+    @Inject(MAT_DIALOG_DATA) public user: User
   ) {}
 
   ngOnInit(): void {}
 
   userForm = new FormGroup({
-    firstname: new FormControl('', Validators.required),
-    lastname: new FormControl('', Validators.required),
-    user_role: new FormControl('', Validators.required),
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
+    firstname: new FormControl(this.user?.firstname, Validators.required),
+    lastname: new FormControl(this.user?.lastname, Validators.required),
+    user_role: new FormControl(this.user?.user_role, Validators.required),
+    username: new FormControl(this.user?.username, Validators.required),
+    password: new FormControl(
+      { disabled: !!this.user?.firstname, value: '' },
+      Validators.required
+    ),
   });
 
   addNewUser() {
     this.service.addNewUser(this.userForm.value as User).subscribe();
+  }
+  updateUser() {
+    var user: any = this.userForm.value;
+    user.user_id = this.user.user_id;
+    this.service.updateUser(this.userForm.value as User).subscribe();
   }
 }

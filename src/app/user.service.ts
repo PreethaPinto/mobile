@@ -23,6 +23,15 @@ export class UserService {
     });
   }
 
+  updateUser(user: User) {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(user);
+    console.log(body);
+    return this.http.put(this.baseURL + 'users', body, {
+      headers: headers,
+    });
+  }
+
   deleteUser(id: number) {
     return this.http.delete(this.baseURL + 'users/' + id);
   }

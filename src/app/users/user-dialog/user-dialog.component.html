@@ -39,9 +39,9 @@
       color="primary"
       [disabled]="userForm.invalid"
       mat-dialog-close
-      (click)="addNewUser()"
+      (click)="!!user ? updateUser() : addNewUser()"
     >
-      Add
+      {{ !!user ? "Update" : "Add" }}
     </button>
 
     <button mat-button [mat-dialog-close]="true">Cancel</button>

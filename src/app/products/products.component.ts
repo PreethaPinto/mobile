@@ -40,13 +40,12 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   displayedColumns: string[] = [
-    'product_id',
     'product_name',
     'product_model',
     'manufacturer',
     'price',
     'stock_on_hand',
-    'feature_id',
+
     'delete',
     'edit',
   ];

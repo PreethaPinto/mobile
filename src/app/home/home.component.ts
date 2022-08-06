@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
 
   orderProduct(product: Product) {
     this.dialog
-      .open(OrderDialogComponent, { data: product })
+      .open(OrderDialogComponent, { data: product, width: '50vw' })
       .afterClosed()
       .subscribe();
   }
