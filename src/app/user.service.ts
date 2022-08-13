@@ -6,7 +6,7 @@ import { User } from './users/users.component';
   providedIn: 'root',
 })
 export class UserService {
-  private baseURL = 'http://localhost:8080/';
+  private baseURL = 'https://mobile-hour.et.r.appspot.com/';
 
   constructor(private http: HttpClient) {}
 

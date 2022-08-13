@@ -7,7 +7,7 @@ import { Product, ProductsComponent } from './products/products.component';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseURL = 'http://localhost:8080/';
+  private baseURL = 'https://mobile-hour.et.r.appspot.com/';
 
   constructor(private http: HttpClient) {}
 

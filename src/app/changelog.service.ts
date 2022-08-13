@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ChangelogService {
-  private baseURL = 'http://localhost:8080/';
+  private baseURL = 'https://mobile-hour.et.r.appspot.com/';
 
   constructor(private http: HttpClient) {}
   getChangeLog(filters: ChangeLogFilter) {

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private _loginUrl = 'http://localhost:8080/login';
+  private _loginUrl = 'https://mobile-hour.et.r.appspot.com/login';
 
   constructor(private http: HttpClient, private router: Router) {}
 
